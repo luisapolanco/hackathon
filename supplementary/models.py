@@ -29,20 +29,42 @@ class Teacher(AbstractBaseUser):
     id = models.BigAutoField(max_length=15, primary_key=True)
     name = models.CharField(max_length=100)
 
-class Student(AbstractBaseUser):
-    id = models.CharField(max_length=15, primary_key=True)
-    name = models.CharField(max_length=100)
 
 class Monitor(AbstractBaseUser):
     id = models.BigAutoField(max_length=15, primary_key=True)
     name = models.CharField(max_length=100)
 
 class Course(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    id_teacher = models.ForeignKey(Teacher, to_field='id', null=False, blank=False, on_delete=models.CASCADE)
-    id_monitor = models.ForeignKey(Monitor, to_field='id', null=False, blank=False, on_delete=models.CASCADE)
+    id = models.CharField(primary_key=True, max_length=6)
+    # id_teacher = models.ForeignKey(Teacher, to_field='id', null=False, blank=False, on_delete=models.CASCADE)
+    # id_monitor = models.ForeignKey(Monitor, to_field='id', null=False, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
 
+    def create_course(id_course):
+        course = Course.model(
+            id = id_course,
+            name = "Calculo"
+        )
+        course.save()
+        return course
+
+
+class Student(AbstractBaseUser):
+    id = models.CharField(max_length=15, primary_key=True)
+    name = models.CharField(max_length=100)
+    id_course = models.ForeignKey(Course,  to_field='id', null=False, blank=False, on_delete=models.CASCADE, default='111')
+
+    def create_student(email, id, name,  id_course):
+        user = Student.model(
+            id = id,
+            email = email, 
+            name = name, 
+            id_course = id_course
+        )
+        
+        user.save()
+        return user
+        
 class TestLost(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=40)
