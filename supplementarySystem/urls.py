@@ -21,4 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', supViews.home),
     path('import', supViews.importData),
+    path('mainEstudiante/', supViews.mainEstudiante),
+    path('supletorioEstudiante/', supViews.supletorioEstudiante),
+    path('monitoriaEstudiante/', supViews.monitoriaEstudiante),
+    path('tallerEstudiante/', supViews.tallerEstudiante),
+    path('profesor/', supViews.confirmMonitoringWorkshop),
 ]

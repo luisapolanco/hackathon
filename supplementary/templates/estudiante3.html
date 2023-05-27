@@ -1,0 +1,79 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+
+    <title>Repaso Flex Box</title>
+</head>
+
+<body>
+
+
+
+    <section class="Flex-container">
+
+        <div class="navbar">
+
+            <h1>
+                nombre
+            </h1>
+
+            <img src="Logo EAFIT 2015 - Blanco.png">
+
+        </div>
+
+
+        <div class="content">
+            <h1>inicio</h1>
+            <div class="progres">
+                <img src="">
+                <h1>Seleccionar monitoria</h1>
+                <h1>Realizar Taller</h1>
+                <h1>Presentar Examen</h1>
+
+
+            </div>
+
+            <div class="calenderio">
+                <label for="start">Start date:</label>
+
+                <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+
+                <div class="opciones">
+
+                    <h1>Daniel Quiroz Cortez</h1>
+                    <h2>01:30 pm - 02:30 pm</h2>
+                    <h1>Daniel Quiroz Cortez</h1>
+                    <h2>01:30 pm - 02:30 pm</h2>
+                    <h1>Daniel Quiroz Cortez</h1>
+                    <h2>01:30 pm - 02:30 pm</h2>
+                </div>
+                <div class="reserva">
+                    <h1>Daniel Quiroz Cortez</h1>
+                    <h2>01:30 pm - 02:30 pm</h2>
+                    <button>Reservar</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+</body>
+
+</html>

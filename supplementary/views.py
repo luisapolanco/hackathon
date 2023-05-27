@@ -17,12 +17,12 @@ def confirmMonitoringWorkshop(request):
         if form.is_valid():
             if form.is_valid():
                 form.save()
-                return redirect('profesorBorrar.html')  
+                return redirect('profesor.html')  
 
     else:
         form = monitoringWorkshopForm()
 
-    return render(request, 'profesorBorrar.html', {'form': form,'estudiantes':estudiantes})
+    return render(request, 'profesor.html', {'form': form,'estudiantes':estudiantes})
 
 def importData(request):
     File = pd.ExcelFile(request.FILES['excel'])
@@ -71,4 +71,14 @@ def create_supplementary(student, id_course ):
     return sup
 
 
+def mainEstudiante(request):
+    return render(request, 'estudiante.html')
 
+def supletorioEstudiante(request):
+    return render(request, 'estudiante2.html')
+
+def monitoriaEstudiante(request):
+    return render(request, 'estudiante3.html')
+
+def tallerEstudiante(request):
+    return render(request, 'estudiante4.html')
