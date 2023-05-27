@@ -1,11 +1,28 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 import pandas as pd
-from .models import Course, Student, Supplementary
+from .models import Course, Student
+from .forms import monitoringWorkshopForm
+from .models import Supplementary
 
 # Create your views here.
 def home(request):
     return render(request, 'importData.html')
+
+def confirmMonitoringWorkshop(request):
+    estudiantes = Supplementary.objects.all()
+    if request.method == 'POST':
+        form = monitoringWorkshopForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            if form.is_valid():
+                form.save()
+                return redirect('profesorBorrar.html')  
+
+    else:
+        form = monitoringWorkshopForm()
+
+    return render(request, 'profesorBorrar.html', {'form': form,'estudiantes':estudiantes})
 
 def importData(request):
     File = pd.ExcelFile(request.FILES['excel'])
