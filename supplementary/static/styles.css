@@ -15,7 +15,15 @@ body {
     font-style: normal;
 }
 
-
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .navbar {
@@ -58,3 +66,9 @@ body {
 
 }
 
+button {
+    display: block;
+    padding: 0.5rem 1rem;
+    width: 200px;
+    margin: 0 auto;
+}
